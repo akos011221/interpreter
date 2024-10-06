@@ -22,7 +22,11 @@ if (5 > 10) {
 	return false;
 } else {
 	return true;
-}`
+}
+
+10 == 10;
+10 != 5;
+`
 
 	tests := []struct {
 		expectedType    token.TokenType
@@ -93,6 +97,14 @@ if (5 > 10) {
 		{token.TRUE, "true"},
 		{token.SEMICOLON, ";"},
 		{token.RBRACE, "}"},
+		{token.INT, "10"},
+		{token.EQ, "=="},
+		{token.INT, "10"},
+		{token.SEMICOLON, ";"},
+		{token.INT, "10"},
+		{token.NOT_EQ, "!="},
+		{token.INT, "5"},
+		{token.SEMICOLON, ";"},
 		{token.EOF, ""},
 	}
 
